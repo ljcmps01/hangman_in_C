@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1653209214 source:c:\users\administrador\documents\programas\hangman\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"hangman.h"
+
+1653209237 source:c:\users\administrador\documents\programas\hangman\hangman\hangman.c
+	"hangman.h"
+
+1653209214 c:\users\administrador\documents\programas\hangman\hangman\hangman.h
+	<string.h>
+	<stdio.h>
+
+1653209214 source:c:\users\administrador\documents\programas\hangman\hangman\hangman.h
+	<string.h>
+	<stdio.h>
+
