@@ -1,2 +1,2 @@
 # hangman_in_C
-Simple console Hangman game coded in C
+Juego clasico del ahorcado codeado en C para consolas windows
