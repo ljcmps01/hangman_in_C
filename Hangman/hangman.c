@@ -8,6 +8,7 @@ int inicializarVector(char *palabra,int vAdivinados[],int tam)
         if(palabra[i]!=32)
         {
             vAdivinados[i]=0;
+            palabra[i]=toupper(palabra[i]);
         }
         else
         {
@@ -59,16 +60,25 @@ int palabraOculta(char *palabra,int vAdivinados[],int tam)
 int intentoAdivinar(char *palabra,int vAdivinados[],int tam,char intento)
 {
     int resultado=0;
+    int caracter=toupper(intento);
 
-    for(int i=0;i<tam;i++)
+    if(caracter>=65&&caracter<=90)
     {
-        if(intento==palabra[i])
+        for(int i=0;i<tam;i++)
         {
-            vAdivinados[i]=1;
-            resultado++;
+            if(caracter==palabra[i])
+            {
+                vAdivinados[i]=1;
+                resultado++;
+            }
         }
     }
 
+    else
+    {
+
+        resultado=-1;
+    }
     return resultado;
 }
 

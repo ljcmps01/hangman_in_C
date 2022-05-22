@@ -11,25 +11,26 @@ TODO:
 
 #include "hangman.h"
 
-#define PALABRA "hola mundo"
-#define cCHAR 10
+#define PALABRA "palabra"
+#define MAX_CHAR 5
 #define VIDAS_MAXIMAS 5
 
 int main()
 {
-    char palabraSecreta[20]=PALABRA;
-    int adivinados[cCHAR]={};
+    char palabraSecreta[MAX_CHAR]=PALABRA;
+    int adivinados[MAX_CHAR]={};
+    int cChar=strlen(palabraSecreta);
     int vidas=VIDAS_MAXIMAS;
     char intento;
     int acierto;
 
-    if(inicializarVector(palabraSecreta,adivinados,cCHAR))
+    if(inicializarVector(palabraSecreta,adivinados,cChar))
     {
         printf("ERROR INICIALIZANDO EL VECTOR\n");
         system("PAUSE");
     }
 
-    if(mostrarVector(adivinados,cCHAR))
+    if(mostrarVector(adivinados,cChar))
     {
         printf("ERROR MOSTRANDO EL VECTOR\n");
         system("PAUSE");
@@ -37,7 +38,7 @@ int main()
 
     while(vidas)
     {
-        if(palabraOculta(palabraSecreta,adivinados,cCHAR))
+        if(palabraOculta(palabraSecreta,adivinados,cChar))
         {
             printf("ERROR IMPRIMIENDO LA PALABRA OCULTA\n");
         }
@@ -45,14 +46,14 @@ int main()
 
         scanf("%c",&intento);
         fflush(stdin);
-        acierto=intentoAdivinar(palabraSecreta,adivinados,cCHAR,intento);
+        acierto=intentoAdivinar(palabraSecreta,adivinados,cChar,intento);
 
         system("cls");
 
-        if(acierto)
+        if(acierto>0)
         {
             printf("BIEN! ADIVINASTE %d LETRA/S\n",acierto);
-            if(checkearVictoria(adivinados,cCHAR))
+            if(checkearVictoria(adivinados,cChar))
             {
                 printf("\t\t#########################\n");
                 printf("\t\t#                       #\n");
@@ -64,16 +65,24 @@ int main()
         }
         else
         {
-            vidas--;
-            printf("LO SIENTO :( NO ACERTASTE, TE QUEDAN %d VIDA/S\n",vidas);
-            if(!vidas)
+            if(acierto==0)
             {
-                printf("\t\t#########################\n");
-                printf("\t\t#                       #\n");
-                printf("\t\t#       PERDISTE :(     #\n");
-                printf("\t\t#                       #\n");
-                printf("\t\t#########################\n");
+                vidas--;
+                printf("LO SIENTO :( NO ACERTASTE, TE QUEDAN %d VIDA/S\n",vidas);
+                if(!vidas)
+                {
+                    printf("\t\t#########################\n");
+                    printf("\t\t#                       #\n");
+                    printf("\t\t#       PERDISTE :(     #\n");
+                    printf("\t\t#                       #\n");
+                    printf("\t\t#########################\n");
+                }
             }
+            else
+            {
+                printf("CARACTER INGRESADO NO VALIDO\n");
+            }
+
         }
 
     }

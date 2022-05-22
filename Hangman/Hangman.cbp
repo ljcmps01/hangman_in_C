@@ -31,6 +31,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="hangman.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hangman.h">
+			<Option compile="1" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
