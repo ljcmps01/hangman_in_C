@@ -12,7 +12,7 @@ TODO:
 #include "hangman.h"
 
 #define PALABRA "palabra"
-#define MAX_CHAR 5
+#define MAX_CHAR 16
 #define VIDAS_MAXIMAS 5
 
 int main()
